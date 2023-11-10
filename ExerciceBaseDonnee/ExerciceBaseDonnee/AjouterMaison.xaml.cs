@@ -30,6 +30,14 @@ namespace ExerciceBaseDonnee
 
         private void btnAjouterMaison_Click(object sender, RoutedEventArgs e)
         {
+            string categorie = textBoxCategorie.Text;
+            decimal prix = (decimal)numberBoxPrix.Value;
+            string ville = textBoxVille.Text;
+            int id_proprietaire = (int) numberBoxProprietaire.Value;
+            
+            Maison maison = new Maison(0 , categorie, prix, ville, id_proprietaire);
+
+            SingletonMaison.getInstance().ajouter(maison);
 
         }
     }

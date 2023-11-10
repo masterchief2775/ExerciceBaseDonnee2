@@ -40,7 +40,7 @@ namespace ExerciceBaseDonnee
                 case "iAjouter":
                     mainFrame.Navigate(typeof(AjouterMaison));
                     break;
-                case "iAfficher":
+                case "iAfficherMaisons":
                     mainFrame.Navigate(typeof(AfficherMaison));
                     break;
                 default:

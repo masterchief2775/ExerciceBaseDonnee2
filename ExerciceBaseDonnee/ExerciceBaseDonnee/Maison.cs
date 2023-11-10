@@ -16,23 +16,23 @@ namespace ExerciceBaseDonnee
         {
             id = 0;
             categorie = "categorie";
-            ville = "ville";
             prix = 0;
+            ville = "ville";
             id_proprietaire = 0;
         }
-        public Maison(int id, string categorie, string ville, decimal prix, int id_proprietaire)
+        public Maison(int id, string categorie, decimal prix, string ville, int id_proprietaire)
         {
             this.id = id;
             this.categorie = categorie;
-            this.ville = ville;
             this.prix = prix;
+            this.ville = ville;
             this.id_proprietaire = id_proprietaire;
         }
 
         public int Id { get => id; set => id = value; }
         public string Categorie { get => categorie; set => categorie = value; }
-        public string Ville { get => ville; set => ville = value; }
         public decimal Prix { get => prix; set => prix = value; }
+        public string Ville { get => ville; set => ville = value; }
         public int Id_proprietaire { get => id_proprietaire; set => id_proprietaire = value; }
 
         public override bool Equals(object obj)

@@ -14,7 +14,7 @@
                 <NavigationViewItemHeader Content="Options"/>
                 <NavigationViewItem Content="Ajouter" x:Name="iAjouter" Icon="Add"/>
                 <NavigationViewItemSeparator />
-                <NavigationViewItem Content="Afficher" x:Name="iAfficher" Icon="Bookmarks"/>
+                <NavigationViewItem Content="Afficher" x:Name="iAfficherMaisons" Icon="Bookmarks"/>
             </NavigationView.MenuItems>
             <Frame x:Name="mainFrame"/>
         </NavigationView>

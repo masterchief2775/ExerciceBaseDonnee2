@@ -27,13 +27,7 @@ namespace ExerciceBaseDonnee
         public AfficherMaison()
         {
             this.InitializeComponent();
-            gridViewAfficher.ItemsSource = SingletonMaison.getInstance().GetListeMaisons();
-        }
-
-        private void btnFiltrer_Click(object sender, RoutedEventArgs e)
-        {
-            Maison maison = new Maison();
-            SingletonMaison.getInstance().ajouter(maison);
+            gridViewAfficherMaison.ItemsSource = SingletonMaison.getInstance().GetListeMaisons();
         }
     }
 }

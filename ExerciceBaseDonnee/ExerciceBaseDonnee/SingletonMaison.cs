@@ -33,9 +33,10 @@ namespace ExerciceBaseDonnee
 
         public ObservableCollection<Maison> GetListeMaisons()
         {
+            liste.Clear();
             try
             {
-                MySqlCommand commande = new MySqlCommand("p_get_maisons");
+                MySqlCommand commande = new MySqlCommand("p_afficher_maisons");
                 commande.Connection = con;
                 commande.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
@@ -49,7 +50,7 @@ namespace ExerciceBaseDonnee
                     decimal prix = (decimal)r["prix"];
                     int id_proprietaire = (int)r["id_proprietaire"];
 
-                    Maison maison = new Maison(id ,categorie, ville, prix, id_proprietaire);
+                    Maison maison = new Maison(id ,categorie, prix, ville, id_proprietaire);
 
                     liste.Add(maison);
                 }
@@ -72,21 +73,20 @@ namespace ExerciceBaseDonnee
 
         public void ajouter(Maison maison)
         {
-            int id = 0;
             string categorie = maison.Categorie;
-            string ville = maison.Ville;
             decimal prix = maison.Prix;
+            string ville = maison.Ville;
             int id_proprietaire = maison.Id_proprietaire;
             try
             {
-                MySqlCommand commande = new MySqlCommand("p_ajout_maisons");
+                MySqlCommand commande = new MySqlCommand("p_ajouter_maison");
                 commande.Connection = con;
                 commande.CommandType = System.Data.CommandType.StoredProcedure;
 
-                commande.Parameters.AddWithValue("id", id);
                 commande.Parameters.AddWithValue("categorie", categorie);
-                commande.Parameters.AddWithValue("ville", ville);
                 commande.Parameters.AddWithValue("prix", prix);
+                commande.Parameters.AddWithValue("ville", ville);
+                commande.Parameters.AddWithValue("id_proprietaire", id_proprietaire);
 
                 con.Open();
                 commande.Prepare();

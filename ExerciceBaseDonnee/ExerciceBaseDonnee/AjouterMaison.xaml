@@ -24,9 +24,9 @@
 
         <StackPanel Margin="25">
             <TextBox x:Name="textBoxCategorie" Header="Catégorie"/>
+            <NumberBox x:Name="numberBoxPrix" Header="Prix" Value="100000" SpinButtonPlacementMode="Compact" SmallChange="10" LargeChange="100"/>
             <TextBox x:Name="textBoxVille" Header="Ville"/>
-            <TextBox x:Name="textBoxPrix" Header="Prix"/>
-            <TextBox x:Name="textBoxProprietaire" Header="Id du propriétaire"/>
+            <NumberBox x:Name="numberBoxProprietaire" Header="Id du propriétaire" Value="1" SpinButtonPlacementMode="Compact" SmallChange="10" LargeChange="100"/>
             <Button Content="Ajouter une maison" Margin="25" x:Name="btnAjouterMaison" Click="btnAjouterMaison_Click"/>
         </StackPanel>
 
