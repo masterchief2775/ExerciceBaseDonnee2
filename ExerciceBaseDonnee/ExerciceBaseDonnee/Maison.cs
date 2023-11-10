@@ -20,12 +20,13 @@ namespace ExerciceBaseDonnee
             prix = 0;
             id_proprietaire = 0;
         }
-        public Maison(int id, string categorie, string ville, decimal prix)
+        public Maison(int id, string categorie, string ville, decimal prix, int id_proprietaire)
         {
             this.id = id;
             this.categorie = categorie;
             this.ville = ville;
             this.prix = prix;
+            this.id_proprietaire = id_proprietaire;
         }
 
         public int Id { get => id; set => id = value; }

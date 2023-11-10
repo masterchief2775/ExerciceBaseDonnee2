@@ -22,18 +22,18 @@ namespace ExerciceBaseDonnee
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Afficher : Page
+    public sealed partial class AfficherMaison : Page
     {
-        public Afficher()
+        public AfficherMaison()
         {
             this.InitializeComponent();
-            gridViewAfficher.ItemsSource = Singleton.getInstance().GetListeMaisons();
+            gridViewAfficher.ItemsSource = SingletonMaison.getInstance().GetListeMaisons();
         }
 
         private void btnFiltrer_Click(object sender, RoutedEventArgs e)
         {
             Maison maison = new Maison();
-            Singleton.getInstance().ajouter(maison);
+            SingletonMaison.getInstance().ajouter(maison);
         }
     }
 }

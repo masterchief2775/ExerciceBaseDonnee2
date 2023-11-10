@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="ExerciceBaseDonnee.Ajouter"
+    x:Class="ExerciceBaseDonnee.AjouterMaison"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ExerciceBaseDonnee"
@@ -22,11 +22,15 @@
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel>
-            <TextBox x:Name="textBoxCategorie"/>
-            <TextBox x:Name="textBoxVille"/>
-            <TextBox x:Name="textBoxPrix"/>
+        <StackPanel Margin="25">
+            <TextBox x:Name="textBoxCategorie" Header="Catégorie"/>
+            <TextBox x:Name="textBoxVille" Header="Ville"/>
+            <TextBox x:Name="textBoxPrix" Header="Prix"/>
+            <TextBox x:Name="textBoxProprietaire" Header="Id du propriétaire"/>
+            <Button Content="Ajouter une maison" Margin="25" x:Name="btnAjouterMaison" Click="btnAjouterMaison_Click"/>
         </StackPanel>
+
         
+
     </Grid>
 </Page>

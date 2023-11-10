@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="ExerciceBaseDonnee.Afficher"
+    x:Class="ExerciceBaseDonnee.AfficherMaison"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ExerciceBaseDonnee"
@@ -11,31 +11,15 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Margin="25" Orientation="Vertical" Grid.Row="0" Grid.Column="0">
-            <StackPanel>
-                <TextBlock Text="Filtrer les résultats"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <ComboBox SelectedIndex="0">
-                    <x:String>Aucun filtre</x:String>
-                    <x:String>Categorie</x:String>
-                    <x:String>Ville</x:String>
-                </ComboBox>
-                <TextBox x:Name="textBoxFiltrer" Width="200"/>
-                <Button Content="Filtrer" x:Name="btnFiltrer" Click="btnFiltrer_Click"/>
-            </StackPanel>
 
-        </StackPanel>
-
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="0">
             <GridView x:Name="gridViewAfficher">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="local:Maison">
@@ -44,6 +28,7 @@
                             <TextBlock Text="{x:Bind Categorie}" Margin="5,5,5,10"/>
                             <TextBlock Text="{x:Bind Ville}" Margin="5,5,5,10"/>
                             <TextBlock Text="{x:Bind Prix}" Margin="5,5,5,10"/>
+                            <TextBlock Text="{x:Bind Id_proprietaire}" Margin="5,5,5,10"/>
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>

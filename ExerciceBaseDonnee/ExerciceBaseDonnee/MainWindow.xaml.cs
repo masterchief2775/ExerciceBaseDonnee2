@@ -38,10 +38,10 @@ namespace ExerciceBaseDonnee
             switch (item.Name)
             {
                 case "iAjouter":
-                    mainFrame.Navigate(typeof(Ajouter));
+                    mainFrame.Navigate(typeof(AjouterMaison));
                     break;
                 case "iAfficher":
-                    mainFrame.Navigate(typeof(Afficher));
+                    mainFrame.Navigate(typeof(AfficherMaison));
                     break;
                 default:
                     break;

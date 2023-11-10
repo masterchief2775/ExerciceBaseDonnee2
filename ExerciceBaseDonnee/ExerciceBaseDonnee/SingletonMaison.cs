@@ -11,22 +11,22 @@ using Windows.Media.Protection.PlayReady;
 
 namespace ExerciceBaseDonnee
 {
-    class Singleton
+    class SingletonMaison
     {
-        static Singleton instance = null;
+        static SingletonMaison instance = null;
         MySqlConnection con;
         ObservableCollection<Maison> liste;
 
-        public Singleton()
+        public SingletonMaison()
         {
             con = new MySqlConnection("Server=cours.cegep3r.info;Database=2266983-gabriel-bélair;Uid=2266983;Pwd=2266983;");
             liste = new ObservableCollection<Maison>();
         }
 
-        public static Singleton getInstance()
+        public static SingletonMaison getInstance()
         {
             if (instance == null)
-                instance = new Singleton();
+                instance = new SingletonMaison();
 
             return instance;
         }
@@ -35,21 +35,23 @@ namespace ExerciceBaseDonnee
         {
             try
             {
-                MySqlCommand commande = new MySqlCommand();
+                MySqlCommand commande = new MySqlCommand("p_get_maisons");
                 commande.Connection = con;
-                commande.CommandText = "SELECT * FROM maisons";
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
                 MySqlDataReader r = commande.ExecuteReader();
+
                 while (r.Read())
                 {
                     int id = (int)r["id"];
                     string categorie = (string)r["categorie"];
                     string ville = (string)r["ville"];
                     decimal prix = (decimal)r["prix"];
+                    int id_proprietaire = (int)r["id_proprietaire"];
 
-                    Maison maison = new Maison(id ,categorie, ville, prix);
+                    Maison maison = new Maison(id ,categorie, ville, prix, id_proprietaire);
 
-                    liste.Add( maison);
+                    liste.Add(maison);
                 }
 
                 r.Close();
@@ -74,16 +76,17 @@ namespace ExerciceBaseDonnee
             string categorie = maison.Categorie;
             string ville = maison.Ville;
             decimal prix = maison.Prix;
+            int id_proprietaire = maison.Id_proprietaire;
             try
             {
-                MySqlCommand commande = new MySqlCommand();
+                MySqlCommand commande = new MySqlCommand("p_ajout_maisons");
                 commande.Connection = con;
-                commande.CommandText = "INSERT INTO maisons VALUES(@id, @categorie, @ville, @prix)";
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
 
-                commande.Parameters.AddWithValue("@id", id);
-                commande.Parameters.AddWithValue("@categorie", categorie);
-                commande.Parameters.AddWithValue("@ville", ville);
-                commande.Parameters.AddWithValue("@prix", prix);
+                commande.Parameters.AddWithValue("id", id);
+                commande.Parameters.AddWithValue("categorie", categorie);
+                commande.Parameters.AddWithValue("ville", ville);
+                commande.Parameters.AddWithValue("prix", prix);
 
                 con.Open();
                 commande.Prepare();
