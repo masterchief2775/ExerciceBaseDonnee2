@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ExerciceBaseDonnee (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ExerciceBaseDonnee (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
